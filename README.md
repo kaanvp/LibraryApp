@@ -1,8 +1,8 @@
 # 📚 Kütüphane Yönetim Sistemi
-![Login Ekranı](loginss.jpg)
-![Anasayfa Ekranı](mainss.jpg)
-![Ödünç Alma Ekranı](borrowss.jpg)
-![Ayarlar ve Kayıt Ekranı](settingss.jpg)
+![Login Ekranı] (loginss.jpg)
+![Anasayfa Ekranı] (mainss.jpg)
+![Ödünç Alma Ekranı] (borrowss.jpg)
+![Ayarlar ve Kayıt Ekranı] (settingss.jpg)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
