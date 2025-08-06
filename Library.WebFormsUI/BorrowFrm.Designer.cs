@@ -40,13 +40,13 @@
 			Column3 = new DataGridViewTextBoxColumn();
 			BorrowBtn = new SiticoneWinFormsUI.SiticoneGradientButton();
 			siticoneRadialPanel2 = new SiticoneWinFormsUI.SiticoneRadialPanel();
+			label6 = new Label();
+			ReturnDaylbl = new Label();
 			label4 = new Label();
 			BorrowDatelbl = new Label();
 			DueDatelbl = new Label();
 			label3 = new Label();
 			label2 = new Label();
-			ReturnDaylbl = new Label();
-			label6 = new Label();
 			siticoneRadialPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
 			siticoneRadialPanel2.SuspendLayout();
@@ -63,7 +63,7 @@
 			MainPanel.BorderRadiusUpperLeft = true;
 			MainPanel.BorderRadiusUpperRight = true;
 			MainPanel.BorderThickness = 2;
-			MainPanel.Location = new Point(12, 99);
+			MainPanel.Location = new Point(18, 99);
 			MainPanel.MinimumSize = new Size(20, 20);
 			MainPanel.Name = "MainPanel";
 			MainPanel.PanelBackColor = Color.Transparent;
@@ -102,7 +102,7 @@
 			RefreshBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			RefreshBtn.IsBusy = false;
 			RefreshBtn.IsBusyText = "Busy, wait...";
-			RefreshBtn.Location = new Point(879, 27);
+			RefreshBtn.Location = new Point(885, 27);
 			RefreshBtn.MinimumSize = new Size(100, 40);
 			RefreshBtn.Name = "RefreshBtn";
 			RefreshBtn.RaiseError = false;
@@ -132,7 +132,7 @@
 			SearchTbx.IsPassword = false;
 			SearchTbx.IsReadonly = false;
 			SearchTbx.IsRequired = false;
-			SearchTbx.Location = new Point(-1, 27);
+			SearchTbx.Location = new Point(18, 27);
 			SearchTbx.MakeLowercase = false;
 			SearchTbx.MakeUppercase = false;
 			SearchTbx.MinimumSize = new Size(150, 30);
@@ -145,7 +145,7 @@
 			SearchTbx.Radius = 23;
 			SearchTbx.RightToLeft = RightToLeft.No;
 			SearchTbx.ShowPasswordOnFocus = false;
-			SearchTbx.Size = new Size(863, 46);
+			SearchTbx.Size = new Size(850, 46);
 			SearchTbx.TabIndex = 11;
 			SearchTbx.TextColor = Color.Black;
 			SearchTbx.TrimStartEndSpaces = false;
@@ -162,7 +162,7 @@
 			siticoneRadialPanel1.BorderRadiusUpperRight = true;
 			siticoneRadialPanel1.BorderThickness = 1;
 			siticoneRadialPanel1.Controls.Add(label1);
-			siticoneRadialPanel1.Location = new Point(1070, 27);
+			siticoneRadialPanel1.Location = new Point(1076, 27);
 			siticoneRadialPanel1.MinimumSize = new Size(20, 20);
 			siticoneRadialPanel1.Name = "siticoneRadialPanel1";
 			siticoneRadialPanel1.PanelBackColor = Color.FromArgb(33, 57, 81);
@@ -176,7 +176,7 @@
 			label1.AutoSize = true;
 			label1.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 162);
 			label1.ForeColor = Color.White;
-			label1.Location = new Point(97, 9);
+			label1.Location = new Point(103, 9);
 			label1.Name = "label1";
 			label1.Size = new Size(227, 41);
 			label1.TabIndex = 0;
@@ -187,7 +187,7 @@
 			dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-			dataGridView1.Location = new Point(1070, 99);
+			dataGridView1.Location = new Point(1076, 99);
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.RowHeadersWidth = 51;
 			dataGridView1.Size = new Size(412, 486);
@@ -236,7 +236,7 @@
 			BorrowBtn.IdleSecondColor = Color.FromArgb(33, 57, 81);
 			BorrowBtn.IsBusy = false;
 			BorrowBtn.IsBusyText = "Busy, wait...";
-			BorrowBtn.Location = new Point(1070, 755);
+			BorrowBtn.Location = new Point(1076, 755);
 			BorrowBtn.MinimumSize = new Size(100, 40);
 			BorrowBtn.Name = "BorrowBtn";
 			BorrowBtn.OnHoverFirstColor = Color.FromArgb(61, 177, 200);
@@ -265,7 +265,7 @@
 			siticoneRadialPanel2.Controls.Add(DueDatelbl);
 			siticoneRadialPanel2.Controls.Add(label3);
 			siticoneRadialPanel2.Controls.Add(label2);
-			siticoneRadialPanel2.Location = new Point(1070, 593);
+			siticoneRadialPanel2.Location = new Point(1076, 593);
 			siticoneRadialPanel2.MinimumSize = new Size(20, 20);
 			siticoneRadialPanel2.Name = "siticoneRadialPanel2";
 			siticoneRadialPanel2.PanelBackColor = Color.Gainsboro;
@@ -274,12 +274,33 @@
 			siticoneRadialPanel2.TabIndex = 17;
 			siticoneRadialPanel2.VisualStyle = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.DottedContinuousDash;
 			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.Font = new Font("Tahoma", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
+			label6.ForeColor = Color.DarkGray;
+			label6.Location = new Point(235, 123);
+			label6.Name = "label6";
+			label6.Size = new Size(72, 24);
+			label6.TabIndex = 7;
+			label6.Text = "gündür";
+			// 
+			// ReturnDaylbl
+			// 
+			ReturnDaylbl.Font = new Font("Tahoma", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
+			ReturnDaylbl.ForeColor = Color.DarkGray;
+			ReturnDaylbl.Location = new Point(197, 123);
+			ReturnDaylbl.Name = "ReturnDaylbl";
+			ReturnDaylbl.Size = new Size(58, 24);
+			ReturnDaylbl.TabIndex = 6;
+			ReturnDaylbl.Text = "14";
+			// 
 			// label4
 			// 
 			label4.AutoSize = true;
 			label4.Font = new Font("Tahoma", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
 			label4.ForeColor = Color.DarkGray;
-			label4.Location = new Point(16, 123);
+			label4.Location = new Point(22, 123);
 			label4.Name = "label4";
 			label4.Size = new Size(180, 24);
 			label4.TabIndex = 5;
@@ -290,7 +311,7 @@
 			BorrowDatelbl.AutoSize = true;
 			BorrowDatelbl.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
 			BorrowDatelbl.ForeColor = Color.DarkGray;
-			BorrowDatelbl.Location = new Point(251, 42);
+			BorrowDatelbl.Location = new Point(257, 42);
 			BorrowDatelbl.Name = "BorrowDatelbl";
 			BorrowDatelbl.Size = new Size(128, 26);
 			BorrowDatelbl.TabIndex = 4;
@@ -301,7 +322,7 @@
 			DueDatelbl.AutoSize = true;
 			DueDatelbl.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
 			DueDatelbl.ForeColor = Color.DarkGray;
-			DueDatelbl.Location = new Point(164, 84);
+			DueDatelbl.Location = new Point(170, 84);
 			DueDatelbl.Name = "DueDatelbl";
 			DueDatelbl.Size = new Size(128, 26);
 			DueDatelbl.TabIndex = 3;
@@ -312,7 +333,7 @@
 			label3.AutoSize = true;
 			label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
 			label3.ForeColor = Color.DimGray;
-			label3.Location = new Point(14, 80);
+			label3.Location = new Point(20, 80);
 			label3.Name = "label3";
 			label3.Size = new Size(144, 35);
 			label3.TabIndex = 2;
@@ -323,32 +344,11 @@
 			label2.AutoSize = true;
 			label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
 			label2.ForeColor = Color.DimGray;
-			label2.Location = new Point(11, 38);
+			label2.Location = new Point(17, 38);
 			label2.Name = "label2";
 			label2.Size = new Size(237, 35);
 			label2.TabIndex = 1;
 			label2.Text = "Ödünç Alma Tarihi:";
-			// 
-			// ReturnDaylbl
-			// 
-			ReturnDaylbl.Font = new Font("Tahoma", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
-			ReturnDaylbl.ForeColor = Color.DarkGray;
-			ReturnDaylbl.Location = new Point(191, 123);
-			ReturnDaylbl.Name = "ReturnDaylbl";
-			ReturnDaylbl.Size = new Size(58, 24);
-			ReturnDaylbl.TabIndex = 6;
-			ReturnDaylbl.Text = "14";
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Font = new Font("Tahoma", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
-			label6.ForeColor = Color.DarkGray;
-			label6.Location = new Point(229, 123);
-			label6.Name = "label6";
-			label6.Size = new Size(72, 24);
-			label6.TabIndex = 7;
-			label6.Text = "gündür";
 			// 
 			// BorrowFrm
 			// 

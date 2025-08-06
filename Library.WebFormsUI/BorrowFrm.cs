@@ -19,18 +19,17 @@ namespace Library.WebFormsUI
 {
 	public partial class BorrowFrm : Form
 	{
+		private readonly TransactionLogManager _transactionLogManager;
 		private Library.Bussines.Managers.BookManager _bookManager;
 		private Library.Bussines.Managers.BorrowManager _borrowManager;
 		public BorrowFrm()
 		{
 			InitializeComponent();
-			_bookManager = new Library.Bussines.Managers.BookManager(
-						new Library.DataAccess.Context.LibraryContext(
-							new Microsoft.EntityFrameworkCore.DbContextOptions<Library.DataAccess.Context.LibraryContext>()
-						)
-					);
+			_bookManager = new BookManager(new LibraryContext(new DbContextOptions<Library.DataAccess.Context.LibraryContext>()));
 			_borrowManager = new BorrowManager();
+			_transactionLogManager = new TransactionLogManager();
 			LoadBooksFromDatabase();
+			ReturnDaylbl.Text = UtilitiesClass._borrowDurationDays.ToString();
 			UtilitiesClass.DatagridviewStyle(dataGridView1);
 		}
 		private void LoadBooksFromDatabase()
@@ -74,7 +73,7 @@ namespace Library.WebFormsUI
 					Authorname = author,
 					PImage = bookImage,
 					StatusBorrow = bookStatus,
-					BookId = id
+					BookId = id,
 				};
 				bookControl.BookBorrowed += BookControl_BookBorrowed;
 				// Panel'e ekle
@@ -87,6 +86,21 @@ namespace Library.WebFormsUI
 		}
 		private void BookControl_BookBorrowed(object sender, BookBorrowedEventArgs e)
 		{
+
+			if (dataGridView1.Rows.Count > UtilitiesClass._maxBorrowedBooks)
+			{
+				var message = new ErrorMessageFrm("En fazla 5 kitap ödünç alabilirsiniz.");
+				message.TopMost = true;
+				message.Show();
+				dataGridView1.Rows.Clear(); // Listeyi temizle
+				LoadBooksFromDatabase();
+				return;
+			}
+			if (sender is ucBorrow borrowedBookControl)
+			{
+				borrowedBookControl.Visible = false;
+			}
+
 			DataGridViewRow row = new DataGridViewRow();
 			row.CreateCells(dataGridView1); // dataGridView1 senin formundaki datagrid
 
@@ -117,6 +131,7 @@ namespace Library.WebFormsUI
 		private void BorrowFrm_Load(object sender, EventArgs e)
 		{
 			BorrowDatelbl.Text = DateTime.Now.ToString("dd/MM/yyyy");
+			DueDatelbl.Text = DateTime.Now.AddDays(14).ToString("dd/MM/yyyy");
 		}
 
 		private void BorrowBtn_Click(object sender, EventArgs e)
@@ -133,16 +148,29 @@ namespace Library.WebFormsUI
 						BookId = bookId,
 						UserId = Session.CurrentUser.UserId, // Oturum açan kullanıcıyı sen tanımlarsın
 						BorrowDate = DateTime.Now,
-						DueDate = DateTime.Now.AddDays(14),
+						DueDate = DateTime.Now,
 						ReturnDate = null
 					};
 
 					// 2. Borrow veritabanına ekle
 					_borrowManager.Add(borrow);
-
+					
 					// 3. Kitabın durumunu 'OduncVerildi' yap
 					_bookManager.UpdateStatus(bookId, Book.BookStatus.OduncVerildi);
+					// 4. TransactionLog kaydını oluştur
+					var transactionLog = new TransactionLog
+					{
+						BookId = bookId,
+						UserId = Session.CurrentUser.UserId,
+						TransactionDate = DateTime.Now,
+						TransactionType = Book.BookStatus.OduncVerildi.ToString(),
+						DueDate = DateTime.Now.AddDays(15), // Örneğin 15 günlük ödünç verme
+						Status = "Aktif"
+					};
+					// 5. TransactionLog kaydını ekle
+					_transactionLogManager.Add(transactionLog);
 				}
+
 			}
 
 			var message = new MessageFrm("Kitap(lar) Başarıyla Ödünç Alındı");

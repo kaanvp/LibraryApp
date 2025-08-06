@@ -276,12 +276,12 @@
 			// 
 			RoleCbx.FlatStyle = FlatStyle.Flat;
 			RoleCbx.FormattingEnabled = true;
-			RoleCbx.Items.AddRange(new object[] { "admin\t", "kullanıcı" });
+			RoleCbx.Items.AddRange(new object[] { "Kullanıcı Tipi", "admin\t", "kullanıcı" });
 			RoleCbx.Location = new Point(142, 301);
 			RoleCbx.Name = "RoleCbx";
 			RoleCbx.Size = new Size(414, 28);
 			RoleCbx.TabIndex = 18;
-			RoleCbx.Text = "Kullanıcı Rolü";
+			RoleCbx.Text = "Kullanıcı Tipi";
 			// 
 			// panel1
 			// 

@@ -19,11 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Library.Bussines\Library.Bussines.csproj" />
-    <ProjectReference Include="..\Library.DataAccess\Library.DataAccess.csproj" />
-    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj" />
-    <ProjectReference Include="..\Library.WebFormsUI\Library.WebFormsUI.csproj" />
-  </ItemGroup>
-
 </Project>

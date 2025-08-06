@@ -118,5 +118,10 @@ namespace Library.Bussines.Managers
 		{
 			throw new NotImplementedException();
 		}
+
+		public Borrow Get(Func<object, bool> value)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

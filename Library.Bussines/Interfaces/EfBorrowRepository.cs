@@ -22,6 +22,11 @@ namespace Library.Bussines.Interfaces
 			throw new NotImplementedException();
 		}
 
+		public Borrow Get(Func<object, bool> value)
+		{
+			throw new NotImplementedException();
+		}
+
 		public List<Borrow> GetAllBooks()
 		{
 			throw new NotImplementedException();

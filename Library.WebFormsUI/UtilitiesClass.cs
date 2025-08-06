@@ -12,6 +12,10 @@ namespace Library.WebFormsUI
 {
 	public static class UtilitiesClass
 	{
+		public static int _maxBorrowedBooks = 5;
+		public static int _borrowDurationDays = 14;
+		public static int _extensionPeriodDays = 7;
+		public static int _lateFeePerDay = 2;
 		public static void BlurBackground(Form modalForm, Form parentForm)
 		{
 			using Form background = new()

@@ -270,9 +270,9 @@
 			// CheckedOutBtn
 			// 
 			CheckedOutBtn.BackColor = Color.Transparent;
-			CheckedOutBtn.BorderColor = Color.Crimson;
-			CheckedOutBtn.BorderColorOnButtonPress = Color.Crimson;
-			CheckedOutBtn.BorderColorOnHover = Color.Crimson;
+			CheckedOutBtn.BorderColor = Color.Orange;
+			CheckedOutBtn.BorderColorOnButtonPress = Color.Orange;
+			CheckedOutBtn.BorderColorOnHover = Color.Orange;
 			CheckedOutBtn.BorderRadiusAllRound = 1;
 			CheckedOutBtn.BorderRadiusLowerLeft = false;
 			CheckedOutBtn.BorderRadiusLowerRight = false;
@@ -280,7 +280,7 @@
 			CheckedOutBtn.BorderRadiusUpperRight = false;
 			CheckedOutBtn.BorderThickness = 2;
 			CheckedOutBtn.ClickEffect = true;
-			CheckedOutBtn.ControlBackColor = Color.Crimson;
+			CheckedOutBtn.ControlBackColor = Color.Orange;
 			CheckedOutBtn.ControlBackColorOnDisabled = Color.FromArgb(21, 0, 56);
 			CheckedOutBtn.ControlBorderColorOnDisabled = Color.FromArgb(21, 0, 56);
 			CheckedOutBtn.DialogResult = DialogResult.None;
@@ -310,9 +310,9 @@
 			// OverdueBtn
 			// 
 			OverdueBtn.BackColor = Color.Transparent;
-			OverdueBtn.BorderColor = Color.Orange;
-			OverdueBtn.BorderColorOnButtonPress = Color.Orange;
-			OverdueBtn.BorderColorOnHover = Color.Orange;
+			OverdueBtn.BorderColor = Color.Crimson;
+			OverdueBtn.BorderColorOnButtonPress = Color.Crimson;
+			OverdueBtn.BorderColorOnHover = Color.Crimson;
 			OverdueBtn.BorderRadiusAllRound = 1;
 			OverdueBtn.BorderRadiusLowerLeft = false;
 			OverdueBtn.BorderRadiusLowerRight = false;
@@ -320,7 +320,7 @@
 			OverdueBtn.BorderRadiusUpperRight = false;
 			OverdueBtn.BorderThickness = 2;
 			OverdueBtn.ClickEffect = true;
-			OverdueBtn.ControlBackColor = Color.Orange;
+			OverdueBtn.ControlBackColor = Color.Crimson;
 			OverdueBtn.ControlBackColorOnDisabled = Color.FromArgb(21, 0, 56);
 			OverdueBtn.ControlBorderColorOnDisabled = Color.FromArgb(21, 0, 56);
 			OverdueBtn.DialogResult = DialogResult.None;

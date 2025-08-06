@@ -232,6 +232,7 @@
 			Controls.Add(siticoneTextbox1);
 			Controls.Add(pictureBox1);
 			FormBorderStyle = FormBorderStyle.None;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "LoginForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Login";

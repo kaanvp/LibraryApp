@@ -107,6 +107,7 @@
 			Controls.Add(Messagelbl);
 			Controls.Add(siticoneRadialPictureBox1);
 			FormBorderStyle = FormBorderStyle.None;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "MessageFrm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "MessageFrm";

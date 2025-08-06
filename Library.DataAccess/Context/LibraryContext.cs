@@ -25,6 +25,7 @@ namespace Library.DataAccess.Context
 		public DbSet<Location> Locations { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<Borrow> Borrows { get; set; }
+		public DbSet<TransactionLog> TransactionLogs { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Data Source=DESKTOP-P8VVFDN;Initial Catalog=LibraryDb;Integrated Security=True;Trust Server Certificate=True");

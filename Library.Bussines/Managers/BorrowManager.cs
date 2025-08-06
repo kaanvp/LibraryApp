@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,7 +62,8 @@ namespace Library.Bussines.Managers
 		{
 			using (var context = new LibraryContext(new DbContextOptions<LibraryContext>()))
 			{
-				return context.Borrows.FirstOrDefault(b => b.Id == id);
+				return context.Borrows
+					.FirstOrDefault(b => b.BookId == id && b.ReturnDate == null);
 			}
 		}
 		// Burası Bakılacak Ödün alan kişi neye göre arama yapacak
@@ -108,6 +110,109 @@ namespace Library.Bussines.Managers
 						 };
 
 			return result.ToList();
+		}
+
+		public Borrow GetById(int bookId)
+		{
+			using(var context = new LibraryContext(new DbContextOptions<LibraryContext>()))
+			{
+				return context.Borrows
+					.Include(b => b.Book)
+					.Include(b => b.User)
+					.FirstOrDefault(b => b.BookId == bookId && b.ReturnDate == null);
+			}
+		}
+		public void CheckOverdueBooks()
+		{
+            using (var context = new LibraryContext())
+            {
+                // İade edilmemiş ve süresi geçmiş kitapları bul
+                var overdueBooks = context.Borrows
+                    .Include(b => b.Book)
+                    .Include(b => b.User)
+                    .Where(b => b.ReturnDate == null && b.DueDate < DateTime.Now)
+                    .ToList();
+
+                foreach (var borrow in overdueBooks)
+                {
+                    // Kitabın durumu zaten GecikmisIade değilse
+                    if (borrow.Book.Status != Book.BookStatus.GecikmisIade)
+                    {
+                        // Gecikme gününü hesapla
+                        int daysLate = (DateTime.Now.Date - borrow.DueDate.Date).Days;
+                        if (daysLate <= 0) continue; // önlem
+
+                        // Log ekle (kitap hala kullanıcıda)
+                        var transactionLog = new TransactionLog
+                        {
+                            BookId = borrow.BookId,
+                            UserId = borrow.UserId,
+                            TransactionDate = DateTime.Now,
+                            TransactionType = "Gecikme Uyarısı",
+                            DueDate = borrow.DueDate,
+                            ReturnDate = null, // çünkü iade edilmedi
+                            Status = "Teslim Edilmedi - Gecikmiş",
+                        };
+
+                        context.TransactionLogs.Add(transactionLog);
+
+                        // Kitabın durumu sadece görsel olarak değiştirilsin
+                        borrow.Book.Status = Book.BookStatus.GecikmisIade;
+
+                        context.SaveChanges();
+                    }
+                }
+            }
+        }
+		public void Update(Borrow activeBorrow)
+		{
+			using (var context = new LibraryContext(new DbContextOptions<LibraryContext>()))
+			{
+				context.Borrows.Update(activeBorrow);
+				context.SaveChanges();
+			}
+		}
+
+		public Borrow Get(Func<object, bool> value)
+		{
+			throw new NotImplementedException();
+		}
+		public void CheckOverDueBookForTransactionlog()
+		{
+			using (var context = new LibraryContext())
+			{
+				// İade edilmemiş ve süresi geçmiş kitapları bul
+				var overdueBooks = context.Borrows
+					.Include(b => b.Book)
+					.Where(b => b.ReturnDate == null && b.DueDate < DateTime.Now)
+					.ToList();
+
+				foreach (var borrow in overdueBooks)
+				{
+					// Kitabın durumunu GecikmisIade olarak güncelle
+					if (borrow.Book.Status != Book.BookStatus.GecikmisIade)
+					{
+						// Otomatik iade işlemi
+						borrow.ReturnDate = DateTime.Now;
+						borrow.Book.Status = Book.BookStatus.GecikmisIade;
+
+						// Gecikme kaydını TransactionLog'a ekle
+						var transactionLog = new TransactionLog
+						{
+							BookId = borrow.BookId,
+							UserId = borrow.UserId,
+							TransactionDate = DateTime.Now,
+							TransactionType = Book.BookStatus.GecikmisIade.ToString(),
+							ReturnDate = DateTime.Now,
+							DueDate = borrow.DueDate,
+							Status = "Gecikmeli İade",
+						};
+
+						context.TransactionLogs.Add(transactionLog);
+						context.SaveChanges();
+					}
+				}
+			}
 		}
 	}
 }

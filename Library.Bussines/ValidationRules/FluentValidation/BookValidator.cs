@@ -12,17 +12,27 @@ namespace Library.Bussines.ValidationRules.FluentValidation
 	{
 		public BookValidator()
 		{
-			RuleFor(b => b.Title).NotEmpty().WithMessage("Kitap Adı boş olamaz");
-			RuleFor(b => b.AuthorId).NotEmpty().WithMessage("Author ID boş olamaz.");
-			RuleFor(b => b.CategoryId).NotEmpty().WithMessage("Kategori ID boş olamaz.");
-			RuleFor(b => b.LocationId).NotEmpty().WithMessage("Konum ID boş olamaz.");
-			RuleFor(b => b.ISBN).NotEmpty().WithMessage("ISBN boş olamaz");
-			RuleFor(b => b.Status)
-				.IsInEnum()
-				.WithMessage("Geçersiz kitap durumu. Mevcut, Ödünç Verildi veya Gecikmiş İade olmalıdır.");
+			RuleFor(b => b.Title)
+				.NotEmpty().WithMessage("Kitap adı boş olamaz.");
 
+
+			RuleFor(b => b.AuthorId)
+				.NotNull().WithMessage("Yazar seçilmelidir.")
+				.GreaterThan(0).WithMessage("Yazar adı boş olamaz.");
+
+			RuleFor(b => b.CategoryId)
+				.NotNull().WithMessage("Kategori seçilmelidir.")
+				.GreaterThan(0).WithMessage("Kategori adı boş olamaz");
+
+			RuleFor(b => b.LocationId)
+				.NotNull().WithMessage("Konum seçilmelidir.")
+				.GreaterThan(0).WithMessage("Konum boş olamaz");
+
+			RuleFor(b => b.ISBN)
+				.NotEmpty().WithMessage("ISBN boş olamaz.");
 		}
 	}
-	
-	
+
+
+
 }

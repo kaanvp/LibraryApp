@@ -45,10 +45,10 @@
 			// 
 			dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView1.Location = new Point(347, 144);
+			dataGridView1.Location = new Point(354, 144);
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.RowHeadersWidth = 51;
-			dataGridView1.Size = new Size(717, 421);
+			dataGridView1.Size = new Size(717, 445);
 			dataGridView1.TabIndex = 28;
 			dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
 			// 
@@ -82,7 +82,7 @@
 			CloseBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			CloseBtn.IsBusy = false;
 			CloseBtn.IsBusyText = "Busy, wait...";
-			CloseBtn.Location = new Point(746, 575);
+			CloseBtn.Location = new Point(753, 595);
 			CloseBtn.MinimumSize = new Size(100, 40);
 			CloseBtn.Name = "CloseBtn";
 			CloseBtn.RaiseError = false;
@@ -123,7 +123,7 @@
 			SaveBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			SaveBtn.IsBusy = false;
 			SaveBtn.IsBusyText = "Busy, wait...";
-			SaveBtn.Location = new Point(501, 575);
+			SaveBtn.Location = new Point(507, 595);
 			SaveBtn.MinimumSize = new Size(100, 40);
 			SaveBtn.Name = "SaveBtn";
 			SaveBtn.RaiseError = false;
@@ -167,7 +167,7 @@
 			UserNameTbx.Radius = 25;
 			UserNameTbx.RightToLeft = RightToLeft.No;
 			UserNameTbx.ShowPasswordOnFocus = false;
-			UserNameTbx.Size = new Size(314, 51);
+			UserNameTbx.Size = new Size(321, 51);
 			UserNameTbx.TabIndex = 31;
 			UserNameTbx.TextColor = Color.Black;
 			UserNameTbx.TrimStartEndSpaces = false;
@@ -178,7 +178,7 @@
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(1076, 50);
+			panel1.Size = new Size(1083, 50);
 			panel1.TabIndex = 32;
 			// 
 			// PassTbx
@@ -214,7 +214,7 @@
 			PassTbx.Radius = 25;
 			PassTbx.RightToLeft = RightToLeft.No;
 			PassTbx.ShowPasswordOnFocus = false;
-			PassTbx.Size = new Size(314, 51);
+			PassTbx.Size = new Size(321, 51);
 			PassTbx.TabIndex = 33;
 			PassTbx.TextColor = Color.Black;
 			PassTbx.TrimStartEndSpaces = false;
@@ -252,7 +252,7 @@
 			EmailTbx.Radius = 25;
 			EmailTbx.RightToLeft = RightToLeft.No;
 			EmailTbx.ShowPasswordOnFocus = false;
-			EmailTbx.Size = new Size(314, 51);
+			EmailTbx.Size = new Size(321, 51);
 			EmailTbx.TabIndex = 34;
 			EmailTbx.TextColor = Color.Black;
 			EmailTbx.TrimStartEndSpaces = false;
@@ -290,7 +290,7 @@
 			PhoneNoTbx.Radius = 25;
 			PhoneNoTbx.RightToLeft = RightToLeft.No;
 			PhoneNoTbx.ShowPasswordOnFocus = false;
-			PhoneNoTbx.Size = new Size(314, 51);
+			PhoneNoTbx.Size = new Size(321, 51);
 			PhoneNoTbx.TabIndex = 35;
 			PhoneNoTbx.TextColor = Color.Black;
 			PhoneNoTbx.TrimStartEndSpaces = false;
@@ -339,7 +339,7 @@
 			SearchTbx.Radius = 25;
 			SearchTbx.RightToLeft = RightToLeft.No;
 			SearchTbx.ShowPasswordOnFocus = false;
-			SearchTbx.Size = new Size(717, 51);
+			SearchTbx.Size = new Size(724, 51);
 			SearchTbx.TabIndex = 37;
 			SearchTbx.TextColor = Color.Black;
 			SearchTbx.TrimStartEndSpaces = false;
@@ -349,7 +349,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1076, 649);
+			ClientSize = new Size(1083, 669);
 			Controls.Add(SearchTbx);
 			Controls.Add(RoleCbx);
 			Controls.Add(PhoneNoTbx);

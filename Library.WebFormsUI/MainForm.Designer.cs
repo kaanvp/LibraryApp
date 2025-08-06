@@ -28,9 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			CloseBtn = new Button();
 			siticoneRadialPanel1 = new SiticoneWinFormsUI.SiticoneRadialPanel();
+			HomeFormBtn = new SiticoneWinFormsUI.SiticoneFilledButton();
 			ManageBookBtn = new SiticoneWinFormsUI.SiticoneFilledButton();
 			siticoneRadialPictureBox1 = new SiticoneWinFormsUI.SiticoneRadialPictureBox();
 			SettingBtn = new SiticoneWinFormsUI.SiticoneFilledButton();
@@ -45,6 +47,7 @@
 			MainPanel = new SiticoneWinFormsUI.SiticoneRadialFlowLayoutPanel();
 			siticoneFilledButton1 = new SiticoneWinFormsUI.SiticoneFilledButton();
 			SearchTbx = new SiticoneWinFormsUI.SiticoneTextbox();
+			OverdueCheckTimer = new System.Windows.Forms.Timer(components);
 			siticoneRadialPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)siticoneRadialPictureBox1).BeginInit();
 			panel1.SuspendLayout();
@@ -76,6 +79,7 @@
 			siticoneRadialPanel1.BorderRadiusUpperLeft = false;
 			siticoneRadialPanel1.BorderRadiusUpperRight = true;
 			siticoneRadialPanel1.BorderThickness = 5;
+			siticoneRadialPanel1.Controls.Add(HomeFormBtn);
 			siticoneRadialPanel1.Controls.Add(ManageBookBtn);
 			siticoneRadialPanel1.Controls.Add(siticoneRadialPictureBox1);
 			siticoneRadialPanel1.Controls.Add(SettingBtn);
@@ -90,6 +94,46 @@
 			siticoneRadialPanel1.Size = new Size(226, 747);
 			siticoneRadialPanel1.TabIndex = 9;
 			siticoneRadialPanel1.VisualStyle = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+			// 
+			// HomeFormBtn
+			// 
+			HomeFormBtn.BackColor = Color.Transparent;
+			HomeFormBtn.BorderColor = Color.FromArgb(22, 32, 42);
+			HomeFormBtn.BorderColorOnButtonPress = Color.FromArgb(22, 32, 42);
+			HomeFormBtn.BorderColorOnHover = Color.FromArgb(61, 177, 200);
+			HomeFormBtn.BorderRadiusAllRound = 1;
+			HomeFormBtn.BorderRadiusLowerLeft = true;
+			HomeFormBtn.BorderRadiusLowerRight = true;
+			HomeFormBtn.BorderRadiusUpperLeft = true;
+			HomeFormBtn.BorderRadiusUpperRight = true;
+			HomeFormBtn.BorderThickness = 0;
+			HomeFormBtn.ClickEffect = true;
+			HomeFormBtn.ControlBackColor = Color.FromArgb(22, 32, 42);
+			HomeFormBtn.ControlBackColorOnDisabled = Color.FromArgb(21, 0, 56);
+			HomeFormBtn.ControlBorderColorOnDisabled = Color.FromArgb(21, 0, 56);
+			HomeFormBtn.DialogResult = DialogResult.None;
+			HomeFormBtn.ErrorColor = Color.FromArgb(220, 53, 69);
+			HomeFormBtn.Font = new Font("Calibri", 13.8F, FontStyle.Bold);
+			HomeFormBtn.ForeColor = Color.FromArgb(255, 255, 255);
+			HomeFormBtn.ForeColorOnHover = Color.FromArgb(255, 255, 255);
+			HomeFormBtn.ForeColorOnPress = Color.FromArgb(255, 255, 255);
+			HomeFormBtn.HoverEffect = true;
+			HomeFormBtn.Icon = (Image)resources.GetObject("HomeFormBtn.Icon");
+			HomeFormBtn.IconPaddingX = 15;
+			HomeFormBtn.IconPaddingY = 0;
+			HomeFormBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
+			HomeFormBtn.IsBusy = false;
+			HomeFormBtn.IsBusyText = "Busy, wait...";
+			HomeFormBtn.Location = new Point(0, 131);
+			HomeFormBtn.MinimumSize = new Size(100, 40);
+			HomeFormBtn.Name = "HomeFormBtn";
+			HomeFormBtn.RaiseError = false;
+			HomeFormBtn.Size = new Size(226, 62);
+			HomeFormBtn.TabIndex = 4;
+			HomeFormBtn.Text = "Kitaplar";
+			HomeFormBtn.VisualStyleOnIdle = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+			HomeFormBtn.VisualStyleOnInteractive = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+			HomeFormBtn.Click += MainFormBtn_Click;
 			// 
 			// ManageBookBtn
 			// 
@@ -120,7 +164,7 @@
 			ManageBookBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			ManageBookBtn.IsBusy = false;
 			ManageBookBtn.IsBusyText = "Busy, wait...";
-			ManageBookBtn.Location = new Point(0, 143);
+			ManageBookBtn.Location = new Point(0, 282);
 			ManageBookBtn.MinimumSize = new Size(100, 40);
 			ManageBookBtn.Name = "ManageBookBtn";
 			ManageBookBtn.RaiseError = false;
@@ -171,7 +215,7 @@
 			SettingBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			SettingBtn.IsBusy = false;
 			SettingBtn.IsBusyText = "Busy, wait...";
-			SettingBtn.Location = new Point(0, 408);
+			SettingBtn.Location = new Point(0, 487);
 			SettingBtn.MinimumSize = new Size(100, 40);
 			SettingBtn.Name = "SettingBtn";
 			SettingBtn.RaiseError = false;
@@ -180,6 +224,7 @@
 			SettingBtn.Text = "Ayarlar";
 			SettingBtn.VisualStyleOnIdle = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
 			SettingBtn.VisualStyleOnInteractive = SiticoneWinFormsUI.Helpers.DrawingStyle.SiticoneDrawingStyle.Solid;
+			SettingBtn.Click += SettingBtn_Click;
 			// 
 			// ManageBorrowBtn
 			// 
@@ -210,7 +255,7 @@
 			ManageBorrowBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			ManageBorrowBtn.IsBusy = false;
 			ManageBorrowBtn.IsBusyText = "Busy, wait...";
-			ManageBorrowBtn.Location = new Point(0, 280);
+			ManageBorrowBtn.Location = new Point(0, 210);
 			ManageBorrowBtn.MinimumSize = new Size(100, 40);
 			ManageBorrowBtn.Name = "ManageBorrowBtn";
 			ManageBorrowBtn.RaiseError = false;
@@ -250,7 +295,7 @@
 			ManageUserBtn.IconPosition = SiticoneWinFormsUI.Helpers.Positioning.IconPosition.MiddleLeft;
 			ManageUserBtn.IsBusy = false;
 			ManageUserBtn.IsBusyText = "Busy, wait...";
-			ManageUserBtn.Location = new Point(0, 211);
+			ManageUserBtn.Location = new Point(0, 358);
 			ManageUserBtn.MinimumSize = new Size(100, 40);
 			ManageUserBtn.Name = "ManageUserBtn";
 			ManageUserBtn.RaiseError = false;
@@ -438,7 +483,10 @@
 			SearchTbx.TabIndex = 0;
 			SearchTbx.TextColor = Color.Black;
 			SearchTbx.TrimStartEndSpaces = false;
-			SearchTbx.TextChanged += SearchTbx_TextChanged;
+			// 
+			// OverdueCheckTimer
+			// 
+			OverdueCheckTimer.Tick += OverdueCheckTimer_Tick;
 			// 
 			// MainForm
 			// 
@@ -450,6 +498,7 @@
 			Controls.Add(CloseBtn);
 			Controls.Add(panel1);
 			FormBorderStyle = FormBorderStyle.None;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "MainForm";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "MainForm";
@@ -481,5 +530,7 @@
 		private SiticoneWinFormsUI.SiticoneFilledButton siticoneFilledButton1;
 		private SiticoneWinFormsUI.SiticoneRadialFlowLayoutPanel MainPanel;
 		private Label label2;
+		private SiticoneWinFormsUI.SiticoneFilledButton HomeFormBtn;
+		public System.Windows.Forms.Timer OverdueCheckTimer;
 	}
 }

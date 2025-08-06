@@ -33,6 +33,11 @@ namespace Library.WebFormsUI
 			get { return Imageuc.Image; }
 			set { Imageuc.Image = value; }
 		}
+		public string? ButtonText
+		{
+			get { return BorrowBtn.Text; }
+			set { BorrowBtn.Text = value; }
+		}
 		private Book.BookStatus _status;
 		public event EventHandler<BookBorrowedEventArgs> BookBorrowed;
 		private void BorrowBtn_Click(object sender, EventArgs e)

@@ -79,7 +79,9 @@ namespace Library.WebFormsUI
 					int bookId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
 					_bookManager.DeleteBook(bookId);
 					RefreshBookGrid();
-					MessageBox.Show("Kitap başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					var message = new MessageFrm("Kitap başarıyla silindi.");
+					message.TopMost = true;
+					message.Show();
 				}
 
 			}

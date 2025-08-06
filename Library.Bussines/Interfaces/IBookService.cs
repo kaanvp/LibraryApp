@@ -16,5 +16,6 @@ namespace Library.Bussines.Interfaces
 		List<T> GetBySearch(string entity);
 		void UpdateBook(T book);
 		void DeleteBook(int id);
+		Borrow Get(Func<object, bool> value);
 	}
 }
