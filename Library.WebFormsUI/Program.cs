@@ -17,7 +17,12 @@ namespace Library.WebFormsUI
 			var builder = new ConfigurationBuilder()
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory) // Ensure SetBasePath is recognized
 				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-
+			var services = new ServiceCollection();
+			services.AddDbContext<LibraryContext>(options =>
+		    	options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+			
+			services.AddScoped<IBookService, BookManager>();
+			services.AddScoped<IBookRepository, EfBookRepository>();
 			IConfiguration configuration = builder.Build();
 
 			var services = new ServiceCollection();
