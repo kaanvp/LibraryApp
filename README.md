@@ -63,12 +63,13 @@ LibraryManagementSystem/
 
 ## 🔧 Teknolojiler ve Yapılar
 
-- Katmanlı Mimari (UI, Business, DataAccess, Entities, Utilities)
-- Entity Framework Core
+- N-Tier Katmanlı Mimari (UI, Business, DataAccess, Entities, Utilities)
+- Entity Framework Core 
 - FluentValidation ile doğrulama
 - Dependency Injection ile bağımlılık enjeksiyonu
 - Repository Pattern ile veri erişim soyutlaması
 - Event handler kullanımı
+- LINQ Okunabilir ve yönetilebilir veri sorgulamaları
 
 
 ## 📌 Notlar
